@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>preview</title>
+<style>
+  html,body{margin:0;background:#d9d4c8;font:13px system-ui}
+  body{display:flex;justify-content:center;padding:28px}
+  iframe{width:390px;height:844px;border:0;border-radius:26px;background:#f7f4ed;box-shadow:0 20px 50px -20px rgba(0,0,0,.4)}
+</style></head>
+<body>
+<iframe id="f" title="app preview"></iframe>
+<script>
+  var f = document.getElementById('f');
+  var params = new URLSearchParams(location.search);
+  var h = parseInt(params.get('h') || '844', 10);
+  f.style.height = h + 'px';
+  f.src = '../index.html?nosw=1' + (location.hash || '#/today');
+  f.addEventListener('load', function () {
+    var w = f.contentWindow, SP = w.SP;
+    if (!SP) return;
+    var act = params.get('act');
+    try {
+      if (act === 'reviewCard') {
+        SP.actions.reviewStart();
+      } else if (act === 'reviewReveal') {
+        SP.actions.reviewStart();
+        SP.actions.rvReveal();
+      } else if (act === 'dialogue') {
+        SP.renderLesson('w5u1');
+        var p = SP.session;
+        for (var i = 0; i < 8; i++) SP.actions.sessNext();
+        for (var j = 0; j < 5; j++) {
+          var q = p.listenQs[p.li];
+          SP.actions.sessPick(null, { idx: String(q.correct) });
+          SP.actions.sessNextQ();
+        }
+        for (var k = 0; k < 5; k++) SP.actions.sessNextS();
+        SP.actions.sessRoleplay();
+      } else if (act === 'done') {
+        SP.renderLesson('w5u1');
+        var p2 = SP.session;
+        for (var i2 = 0; i2 < 8; i2++) SP.actions.sessNext();
+        for (var j2 = 0; j2 < 5; j2++) {
+          var q2 = p2.listenQs[p2.li];
+          SP.actions.sessPick(null, { idx: String(q2.correct) });
+          SP.actions.sessNextQ();
+        }
+        for (var k2 = 0; k2 < 5; k2++) SP.actions.sessNextS();
+        SP.actions.sessRoleplay();
+        for (var m = 0; m < 8; m++) SP.actions.sessDlgNext();
+      } else if (act === 'levelQuiz') {
+        SP.renderLevel();
+        SP.actions.levelStart();
+      } else if (act === 'levelResult') {
+        SP.renderLevel();
+        SP.actions.levelStart();
+        for (var n = 0; n < 12; n++) {
+          var q3 = SP.level.qs[SP.level.i];
+          var right = n < 9;
+          SP.actions.levelPick(null, { idx: String(right ? q3.correct : (q3.correct + 1) % 4) });
+          SP.actions.levelNext();
+        }
+      } else if (act === 'adv') {
+        w.location.hash = '#/course';
+        setTimeout(function () {
+          var el = w.document.getElementById('week-13');
+          if (el) el.scrollIntoView();
+        }, 400);
+      }
+    } catch (e) { document.title = 'preview error: ' + e.message; }
+  });
+</script>
+</body></html>

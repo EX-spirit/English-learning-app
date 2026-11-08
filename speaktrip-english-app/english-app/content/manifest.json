@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "updatedAt": "2026-11-07",
+  "note": "课程包清单。新增内容时把 version 加 1，并在 units / phrases 里加入新单元，App 打开时会自动合并；断网时使用本地缓存。字段格式见 README 第 9 节。",
+  "weeks": [],
+  "units": [],
+  "phrases": []
+}

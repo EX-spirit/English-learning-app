@@ -1,0 +1,117 @@
+/* SpeakTrip 随身手册：8 个场景 × 12 句，可在无网络时离线查用。
+ * 数据格式：[英文, 中文]
+ */
+window.PHRASEBOOK = [
+  { id: 'survival', name: '救命速用', icon: '🆘', items: [
+    ['Help!', '救命！'],
+    ['Call the police.', '报警。'],
+    ['Call an ambulance.', '叫救护车。'],
+    ['I need a doctor.', '我需要医生。'],
+    ['I\'m lost.', '我迷路了。'],
+    ['Where is the bathroom?', '洗手间在哪里？'],
+    ['I don\'t speak English well.', '我英语说得不好。'],
+    ['Could you help me, please?', '你能帮我一下吗？'],
+    ['I\'ve lost my passport.', '我的护照丢了。'],
+    ['Is there a pharmacy nearby?', '附近有药店吗？'],
+    ['I need to charge my phone.', '我需要给手机充电。'],
+    ['Where can I get a taxi?', '哪里能打到车？']
+  ]},
+  { id: 'airport', name: '机场', icon: '✈️', items: [
+    ['Where is check-in?', '值机柜台在哪里？'],
+    ['Which gate is it?', '是哪个登机口？'],
+    ['Is the flight delayed?', '航班延误了吗？'],
+    ['I missed my flight.', '我错过了航班。'],
+    ['Where is baggage claim?', '行李提取处在哪儿？'],
+    ['I have a connecting flight.', '我要转机。'],
+    ['Can I change my seat?', '我可以换座位吗？'],
+    ['Where can I buy a SIM card?', '哪里能买电话卡？'],
+    ['Is there a lounge?', '有休息室吗？'],
+    ['How long is the layover?', '中转要等多久？'],
+    ['Where is the transfer desk?', '转机柜台在哪里？'],
+    ['My luggage is damaged.', '我的行李损坏了。']
+  ]},
+  { id: 'transport', name: '交通', icon: '🚇', items: [
+    ['How much to the airport?', '去机场多少钱？'],
+    ['Please take me here.', '请送我到这儿。'],
+    ['Does this bus go downtown?', '这趟车去市中心吗？'],
+    ['Where do I get off?', '我在哪儿下车？'],
+    ['How do I buy a ticket?', '怎么买票？'],
+    ['Is it within walking distance?', '走路能到吗？'],
+    ['Which line should I take?', '我该坐哪条线？'],
+    ['Please stop at the next stop.', '请下一站停。'],
+    ['Can I pay with my phone?', '可以用手机支付吗？'],
+    ['How long is the trip?', '路程要多久？'],
+    ['Is this seat taken?', '这个位子有人吗？'],
+    ['I need to get off here.', '我要在这儿下车。']
+  ]},
+  { id: 'hotel', name: '酒店', icon: '🛏️', items: [
+    ['I have a reservation.', '我有预订。'],
+    ['Is breakfast included?', '含早餐吗？'],
+    ['Could I have an extra towel?', '能多给一条毛巾吗？'],
+    ['The key card doesn\'t work.', '房卡刷不开。'],
+    ['What\'s the Wi-Fi password?', 'Wi-Fi 密码是多少？'],
+    ['Can I leave my bags here?', '我能把包寄存在这儿吗？'],
+    ['I\'d like to check out.', '我想退房。'],
+    ['Could I have a quiet room?', '能给我一间安静的房间吗？'],
+    ['Is there a laundry service?', '有洗衣服务吗？'],
+    ['What time is check-out?', '几点退房？'],
+    ['The toilet is blocked.', '马桶堵了。'],
+    ['Could you call a taxi for me?', '能帮我叫辆出租车吗？']
+  ]},
+  { id: 'food', name: '餐厅', icon: '🍽️', items: [
+    ['A table for one, please.', '一位，谢谢。'],
+    ['Could I see the menu?', '能看下菜单吗？'],
+    ['What\'s the special today?', '今天的特色菜是什么？'],
+    ['I\'ll have the same.', '我要一样的。'],
+    ['No spicy, please.', '请不要辣。'],
+    ['I\'m vegetarian.', '我吃素。'],
+    ['Could I get some more water?', '能再给我些水吗？'],
+    ['This isn\'t what I ordered.', '这不是我点的。'],
+    ['Could we split the bill?', '我们可以AA吗？'],
+    ['Can I pay by card?', '可以刷卡吗？'],
+    ['Could I have a box?', '能给我个打包盒吗？'],
+    ['Is service included?', '含服务费吗？']
+  ]},
+  { id: 'shopping', name: '购物', icon: '🛍️', items: [
+    ['How much is it?', '多少钱？'],
+    ['Can I try it on?', '可以试穿吗？'],
+    ['Do you have a smaller size?', '有小一号的吗？'],
+    ['Is there a discount?', '有折扣吗？'],
+    ['I\'ll think about it.', '我再考虑一下。'],
+    ['Can I get a receipt?', '能给我收据吗？'],
+    ['Can I return this?', '这个可以退吗？'],
+    ['Where\'s the checkout?', '收银台在哪里？'],
+    ['Do you take cash?', '收现金吗？'],
+    ['Do you have this in black?', '这个有黑色的吗？'],
+    ['It\'s too expensive.', '太贵了。'],
+    ['I\'m just browsing.', '我随便看看。']
+  ]},
+  { id: 'social', name: '社交', icon: '👋', items: [
+    ['Nice to meet you.', '很高兴认识你。'],
+    ['Where are you from?', '你来自哪里？'],
+    ['How long are you staying?', '你要待多久？'],
+    ['What do you recommend?', '你推荐什么？'],
+    ['Do you mind if I join you?', '介意我加入吗？'],
+    ['That sounds fun.', '听起来很有趣。'],
+    ['I\'m here on holiday.', '我是来度假的。'],
+    ['Have you been here long?', '你在这儿待很久了吗？'],
+    ['Let\'s keep in touch.', '保持联系。'],
+    ['What\'s your name?', '你叫什么名字？'],
+    ['How do you know each other?', '你们怎么认识的？'],
+    ['It was great meeting you.', '很高兴认识你。']
+  ]},
+  { id: 'health', name: '看病', icon: '💊', items: [
+    ['I need a doctor.', '我需要医生。'],
+    ['I have a fever.', '我发烧了。'],
+    ['I\'m in pain.', '我很疼。'],
+    ['I\'m allergic to penicillin.', '我对青霉素过敏。'],
+    ['Where does it hurt?', '哪里疼？'],
+    ['I need some medicine.', '我需要药。'],
+    ['Is it serious?', '严重吗？'],
+    ['I have travel insurance.', '我有旅行保险。'],
+    ['Please call an ambulance.', '请叫救护车。'],
+    ['I feel dizzy.', '我头晕。'],
+    ['I can\'t sleep.', '我睡不着。'],
+    ['I need a dentist.', '我需要看牙医。']
+  ]}
+];

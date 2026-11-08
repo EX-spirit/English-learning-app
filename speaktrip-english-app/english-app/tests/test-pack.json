@@ -1,0 +1,30 @@
+{
+  "version": 99,
+  "updatedAt": "2026-01-01",
+  "note": "仅用于 ?selftest=1 的课程包合并测试，不要放进正式 manifest。",
+  "weeks": [
+    { "n": 17, "title": "测试周", "focus": "自检用", "milestone": "无" }
+  ],
+  "units": [
+    {
+      "id": "testu1",
+      "week": 17,
+      "title": "测试单元",
+      "scene": "自检",
+      "goal": "验证课程包合并",
+      "tip": "这条内容只用于自动化测试。",
+      "chunks": [
+        ["This is a test sentence.", "这是一个测试句子。"],
+        ["Pack merge works.", "课程包合并可用。"]
+      ],
+      "dialogue": {
+        "user": "B",
+        "lines": [
+          ["A", "Hello there.", "你好。"],
+          ["B", "Hi, nice to meet you.", "嗨，很高兴认识你。"]
+        ]
+      }
+    }
+  ],
+  "phrases": []
+}
