@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>开口说 · 16周出国口语（含 B1–B2 进阶）</title>
+<meta name="description" content="为出国自由交流设计的英语口语训练：16 周 32 个场景、256 句高频表达、分级测评、间隔重复、跟读评分；支持课程包自动更新与 AI 加练，离线可用。">
+<meta name="theme-color" content="#f7f4ed" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121311" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="开口说">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="icons/icon-192.png">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div id="boot" class="boot">
+  <div class="boot-logo">A</div>
+  <p>正在准备今天的句子…</p>
+</div>
+<div id="app" class="app" hidden></div>
+
+<script src="data/curriculum-1.js"></script>
+<script src="data/curriculum-2.js"></script>
+<script src="data/curriculum-3.js"></script>
+<script src="data/curriculum-4.js"></script>
+<script src="data/curriculum-5.js"></script>
+<script src="data/phrasebook.js"></script>
+<script src="js/core.js"></script>
+<script src="js/speech.js"></script>
+<script src="js/content.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/learn.js"></script>
+<script src="js/level.js"></script>
+<script src="js/ai.js"></script>
+<script src="js/selftest.js"></script>
+<script>
+if ('serviceWorker' in navigator && location.protocol.indexOf('http') === 0 && !/[?&]nosw=1/.test(location.search)) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('sw.js').catch(function () {});
+  });
+}
+</script>
+</body>
+</html>

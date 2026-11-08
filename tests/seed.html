@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>seed</title>
+<style>body{font:14px system-ui;padding:40px;background:#f7f4ed;color:#1b1a17}</style></head>
+<body>
+<p id="msg">seeding…</p>
+<script src="../data/curriculum-1.js"></script>
+<script src="../data/curriculum-2.js"></script>
+<script src="../data/curriculum-3.js"></script>
+<script src="../data/curriculum-4.js"></script>
+<script src="../data/phrasebook.js"></script>
+<script src="../js/core.js"></script>
+<script>
+(function () {
+  var DAY = 86400000, now = Date.now();
+  var s = ENG.defaultState();
+  s.profile = { name: '明浩', level: 'basic', minutes: 30, goal: 'travel', startDate: new Date(now - 24 * DAY).toISOString() };
+  var chunks = ENG.index().chunks;
+  chunks.forEach(function (it, idx) {
+    if (idx < 46) {
+      s.srs[it.id] = { e: 2.6, i: 30, reps: 4, lapses: 0, due: now + (idx % 6) * DAY, last: now - 9 * DAY, g: 2 };
+    } else if (idx < 74) {
+      s.srs[it.id] = { e: 2.5, i: 3, reps: 2, lapses: 0, due: now - 3600000 * (idx % 6 + 1), last: now - 2 * DAY, g: 2 };
+    } else if (idx < 96) {
+      s.srs[it.id] = { e: 2.4, i: 1, reps: 1, lapses: 1, due: now + DAY * (idx % 4), last: now - DAY, g: 1 };
+    }
+  });
+  ['w1u1', 'w1u2', 'w2u1', 'w2u2', 'w3u1', 'w3u2', 'w4u1', 'w4u2'].forEach(function (id) {
+    s.lessons[id] = { done: true, at: now - 3 * DAY, listen: 0.8, speak: 0.72 };
+  });
+  for (var d = 0; d < 30; d++) {
+    var k = ENG.dayStr(new Date(now - d * DAY));
+    if (d % 9 === 3) continue;
+    s.stats[k] = {
+      min: 18 + (d * 7) % 26,
+      cards: 10 + (d * 5) % 24,
+      newCards: d < 12 ? 8 : 3,
+      speak: 3 + d % 6,
+      listen: 4,
+      xp: 40 + (d * 3) % 50
+    };
+  }
+  s.streak = { count: 12, last: ENG.dayStr(new Date()) };
+  s.totals = { speak: 96, speakScore: 76.4, listen: 72, listenOk: 61 };
+  s.favorites = ['p:hotel:4', 'p:food:7', 'c:w8u2:6'];
+  ENG.save(s);
+  document.getElementById('msg').textContent = 'seeded: ' + Object.keys(s.srs).length + ' cards';
+  setTimeout(function () { location.replace('../index.html?nosw=1#/today'); }, 150);
+})();
+</script>
+</body></html>
